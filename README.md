@@ -702,7 +702,6 @@ Rakshitha Poshetty — Team Lead
 Jhasmitha Tattari
 Sai Akshaya Dantala
 Akshara Deshineni
->>>>>>> de9c5de (Updated README with hackathon details)
 
 This project was developed as part of the Sudhee 2026 Hackathon conducted by CBIT.
 
