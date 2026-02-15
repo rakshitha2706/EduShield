@@ -692,19 +692,6 @@ EduShield aims to:
 
 ---
 
-<<<<<<< HEAD
-## 🏆 Hackathon Submission Details
-
-Event: Sudhee 2026 Hackathon
-Institution: CBIT
-
-Team Members:
-
-- Rakshitha Poshetty — Team Lead
-- Jhasmitha Tattari
-- Sai Akshaya Dantala
-- Akshara Deshineni
-=======
 ### 🏆 Hackathon Submission Details
 
 Event: Sudhee 2026 Hackathon Institution: CBIT
@@ -715,23 +702,13 @@ Rakshitha Poshetty — Team Lead
 Jhasmitha Tattari
 Sai Akshaya Dantala
 Akshara Deshineni
->>>>>>> de9c5de (Updated README with hackathon details)
 
 This project was developed as part of the Sudhee 2026 Hackathon conducted by CBIT.
 
 ---
 
-<<<<<<< HEAD
-=======
-
->>>>>>> de9c5de (Updated README with hackathon details)
 **Made for improving student success in Indian education**
 
 **🛡️ EduShield - Protecting Every Student's Future**
 
-<<<<<<< HEAD
-© 2026 Rakshitha Poshetty and Team. All rights reserved.
-Licensed under the MIT License.
-=======
 © 2026 Rakshitha Poshetty and Team. All rights reserved. Licensed under the MIT License.
->>>>>>> de9c5de (Updated README with hackathon details)
