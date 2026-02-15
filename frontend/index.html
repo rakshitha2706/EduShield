@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduShield - Student Dropout Prediction System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>📊</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>🛡️ EduShield</h1>
+                    <p>Early Intervention Platform</p>
+                </div>
+                <nav class="nav">
+                    <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+                    <button class="nav-btn" data-section="students">Students</button>
+                    <button class="nav-btn" data-section="alerts">Alerts</button>
+                    <button class="nav-btn" data-section="model">AI Model</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="section active">
+                <div class="section-header">
+                    <h2>📊 Dashboard Overview</h2>
+                    <button class="btn btn-primary" onclick="loadDashboard()">🔄 Refresh</button>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <h3 id="total-students">0</h3>
+                            <p>Total Students</p>
+                        </div>
+                    </div>
+                    <div class="stat-card high-risk">
+                        <div class="stat-icon">🔴</div>
+                        <div class="stat-content">
+                            <h3 id="high-risk-count">0</h3>
+                            <p>High Risk</p>
+                        </div>
+                    </div>
+                    <div class="stat-card medium-risk">
+                        <div class="stat-icon">🟡</div>
+                        <div class="stat-content">
+                            <h3 id="medium-risk-count">0</h3>
+                            <p>Medium Risk</p>
+                        </div>
+                    </div>
+                    <div class="stat-card low-risk">
+                        <div class="stat-icon">🟢</div>
+                        <div class="stat-content">
+                            <h3 id="low-risk-count">0</h3>
+                            <p>Low Risk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Risk Distribution</h3>
+                        <canvas id="risk-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Model Performance</h3>
+                        <canvas id="metrics-chart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Students Section -->
+            <section id="students-section" class="section">
+                <div class="section-header">
+                    <h2>👥 Students Management</h2>
+                    <div class="header-actions">
+                        <input type="text" id="search-input" class="search-input" placeholder="🔍 Search students...">
+                        <select id="risk-filter" class="filter-select">
+                            <option value="">All Risk Levels</option>
+                            <option value="High Risk">High Risk</option>
+                            <option value="Medium Risk">Medium Risk</option>
+                            <option value="Low Risk">Low Risk</option>
+                        </select>
+                        <button class="btn btn-secondary" onclick="loadStudents()">🔄 Refresh</button>
+                    </div>
+                </div>
+
+                <!-- Students Table -->
+                <div class="table-container">
+                    <table class="students-table">
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Avg Score</th>
+                                <th>Assessments</th>
+                                <th>Risk Score</th>
+                                <th>Risk Level</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="students-tbody">
+                            <!-- Students will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button id="prev-page" class="btn btn-secondary" onclick="previousPage()">← Previous</button>
+                    <span id="page-info">Page 1</span>
+                    <button id="next-page" class="btn btn-secondary" onclick="nextPage()">Next →</button>
+                </div>
+            </section>
+
+            <!-- Alerts Section -->
+            <section id="alerts-section" class="section">
+                <div class="section-header">
+                    <h2>⚠️ High Risk Alerts</h2>
+                    <button class="btn btn-primary" onclick="loadAlerts()">🔄 Refresh Alerts</button>
+                </div>
+
+                <div id="alerts-container" class="alerts-grid">
+                    <!-- Alerts will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Model Section -->
+            <section id="model-section" class="section">
+                <div class="section-header">
+                    <h2>🤖 AI Model Information</h2>
+                    <button class="btn btn-primary" onclick="trainModel()">🚀 Train Model</button>
+                </div>
+
+                <div class="model-info-grid">
+                    <div class="info-card">
+                        <h3>Model Performance</h3>
+                        <div class="metrics-list" id="model-metrics">
+                            <!-- Metrics will be loaded here -->
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Feature Importance</h3>
+                        <canvas id="feature-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="training-logs">
+                    <h3>Training Logs</h3>
+                    <div id="training-logs" class="logs-container">
+                        <p class="text-muted">No training logs yet. Click "Train Model" to start.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Student Detail Modal -->
+    <div id="student-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>📋 Student Details</h2>
+            <div id="student-detail-content">
+                <!-- Student details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Intervention Modal -->
+    <div id="intervention-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeInterventionModal()">&times;</span>
+            <h2>📅 Schedule Intervention</h2>
+            <form id="intervention-form" class="intervention-form">
+                <input type="hidden" id="intervention-student-id">
+                
+                <div class="form-group">
+                    <label>Student</label>
+                    <input type="text" id="intervention-student-name" readonly class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label>Intervention Type *</label>
+                    <select id="intervention-type" class="form-input" required>
+                        <option value="">Select type...</option>
+                        <option value="Academic Counseling">Academic Counseling</option>
+                        <option value="Tutoring">Tutoring Session</option>
+                        <option value="Mental Health Support">Mental Health Support</option>
+                        <option value="Financial Aid">Financial Aid Consultation</option>
+                        <option value="Career Guidance">Career Guidance</option>
+                        <option value="Study Skills Workshop">Study Skills Workshop</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Description *</label>
+                    <textarea id="intervention-description" class="form-input" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Scheduled Date *</label>
+                    <input type="datetime-local" id="intervention-date" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Assigned To</label>
+                    <input type="text" id="intervention-assigned" class="form-input" placeholder="Counselor/Tutor name">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Schedule Intervention</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeInterventionModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner hidden">
+        <div class="spinner-content">
+            <div class="spinner-icon"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
