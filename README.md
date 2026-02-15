@@ -33,6 +33,11 @@ A production-ready machine learning system for predicting student dropout risk u
 
 ---
 
+### Project Architecture Diagram
+<img width="1536" height="1024" alt="ChatGPT Image Feb 14, 2026, 03_07_49 PM" src="https://github.com/user-attachments/assets/0d7a52ca-86bc-44fe-a559-9de9f5d9a53b" />
+
+---
+
 ## 📁 Project Structure
 
 ```
@@ -686,6 +691,25 @@ EduShield aims to:
 
 ---
 
+## 🏆 Hackathon Submission Details
+
+Event: Sudhee 2026 Hackathon
+Institution: CBIT
+
+Team Members:
+
+- Rakshitha Poshetty — Team Lead
+- Jhasmitha Tattari
+- Sai Akshaya Dantala
+- Akshara Deshineni
+
+This project was developed as part of the Sudhee 2026 Hackathon conducted by CBIT.
+
+---
+
 **Made for improving student success in Indian education**
 
 **🛡️ EduShield - Protecting Every Student's Future**
+
+© 2026 Rakshitha Poshetty and Team. All rights reserved.
+Licensed under the MIT License.
