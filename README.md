@@ -50,26 +50,28 @@ edushield/
 │   ├── database.py                # MongoDB operations
 │   ├── ml_model.py                # Random Forest model training
 │   └── data_preprocessing.py      # Feature engineering
+|   |__├── ml_models/                     # Saved models (auto-generated)
+│   |  ├── random_forest_model.pkl
+│   |  |── scaler.pkl
+│   |  ├── feature_names.pkl
+│   |  └── metrics.pkl
+|   |__├── data/                          # Processed datasets
+│      └── processed_student_data.csv    
 │
 ├── frontend/
 │   ├── index.html                 # Main dashboard
 │   ├── css/
 │   │   └── styles.css            # Responsive styling
 │   └── js/
-│       └── app.js                # Frontend logic & API calls
-│
-├── ml_models/                     # Saved models (auto-generated)
-│   ├── random_forest_model.pkl
-│   ├── scaler.pkl
-│   ├── feature_names.pkl
-│   └── metrics.pkl
-│
-├── data/                          # Processed datasets
-│   └── processed_student_data.csv
+│       └── app.js                 # Frontend logic & API calls
+|       |___config.js              
 │
 ├── requirements.txt               # Python dependencies
 ├── .env                          # Configuration
 └── README.md                     # This file
+|__LICENSE
+|__.gitignore
+
 ```
 
 ---
