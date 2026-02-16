@@ -38,6 +38,8 @@ class EduShieldModel:
         self.scaler = None
         self.feature_names = None
         self.metrics = {}
+
+        self.load_model()
         
     def load_data(self):
         """Load processed data"""
