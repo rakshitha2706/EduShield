@@ -659,3 +659,11 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+
+window.viewStudent = viewStudent;
+window.previousPage = previousPage;
+window.nextPage = nextPage;
+window.scheduleIntervention = scheduleIntervention;
+window.closeModal = closeModal;
+window.closeInterventionModal = closeInterventionModal;
+window.trainModel = trainModel;
