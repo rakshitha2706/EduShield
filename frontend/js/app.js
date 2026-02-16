@@ -1,6 +1,7 @@
 // EduShield - Frontend Application
 
-const API_BASE_URL = 'https://edushield.onrender.com';
+import { API_BASE_URL } from "./config.js";
+
 
 // Global state
 let currentPage = 1;
