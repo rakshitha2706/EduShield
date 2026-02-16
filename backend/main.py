@@ -293,15 +293,21 @@ async def get_student_details(student_id: str):
 
 @app.get("/stats", response_model=StatsResponse)
 async def get_statistics():
-    """Get system statistics"""
-    stats = await db.get_statistics()
-    
-    # Add model accuracy if available
-    if metrics:
-        stats['model_accuracy'] = metrics.get('accuracy')
-    
-    return StatsResponse(**stats)
 
+    stats = await db.get_statistics()
+
+    if not stats:
+        stats = {
+            "high_risk": 0,
+            "medium_risk": 0,
+            "low_risk": 0,
+            "total_students": 0
+        }
+
+    if metrics:
+        stats["model_accuracy"] = metrics.get("accuracy", 0)
+
+    return StatsResponse(**stats)
 
 @app.get("/alerts")
 async def get_alerts(threshold: float = Query(0.7, ge=0, le=1)):
