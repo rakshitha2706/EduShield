@@ -1,6 +1,6 @@
 // EduShield - Frontend Application
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'https://edushield.onrender.com';
 
 // Global state
 let currentPage = 1;
