@@ -30,7 +30,7 @@ app = FastAPI(
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify exact origins
+    allow_origins=["https://edushield-1ui.onrender.com"],  # In production, specify exact origins
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
