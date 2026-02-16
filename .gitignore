@@ -1,8 +1,6 @@
 __pycache__/
 *.pyc
-*.pkl
-ml_models/
-data/
+
 venv/
 .env
 .DS_Store
