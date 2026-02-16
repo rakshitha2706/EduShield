@@ -296,7 +296,8 @@ async def get_statistics():
 
     stats = await db.get_statistics()
 
-    if not stats:
+    # If DB empty → create default stats
+    if stats is None:
         stats = {
             "high_risk": 0,
             "medium_risk": 0,
@@ -304,8 +305,11 @@ async def get_statistics():
             "total_students": 0
         }
 
+    # Add model accuracy if available
     if metrics:
         stats["model_accuracy"] = metrics.get("accuracy", 0)
+    else:
+        stats["model_accuracy"] = 0
 
     return StatsResponse(**stats)
 
