@@ -441,62 +441,6 @@ SCALER_PATH=./ml_models/scaler.pkl
 FEATURE_NAMES_PATH=./ml_models/feature_names.pkl
 ```
 
----
-
-## 🚢 Deployment Options
-
-### Local Development
-Already covered in Quick Start above.
-
-### Docker Deployment
-
-Create `Dockerfile`:
-```dockerfile
-FROM python:3.10-slim
-
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY backend/ ./backend/
-COPY ml_models/ ./ml_models/
-COPY data/ ./data/
-COPY .env .env
-
-EXPOSE 8000
-
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
-```
-
-Build and run:
-```bash
-docker build -t edushield .
-docker run -p 8000:8000 edushield
-```
-
-### Cloud Deployment
-
-**Backend Options:**
-- **Heroku:** `git push heroku main`
-- **AWS EC2:** Deploy with systemd service
-- **Google Cloud Run:** Container-based deployment
-- **Azure App Service:** Python web app
-- **Railway:** One-click deployment
-
-**Frontend Options:**
-- **Netlify:** Drag & drop frontend folder
-- **Vercel:** Connect GitHub repository
-- **GitHub Pages:** Static site hosting
-- **AWS S3 + CloudFront:** Scalable static hosting
-
-**Database Options:**
-- **MongoDB Atlas:** Free tier available (512MB)
-- **AWS DocumentDB:** MongoDB-compatible
-- **Azure Cosmos DB:** Global distribution
-
----
-
 ## 🧪 Testing
 
 ### Test API Health
